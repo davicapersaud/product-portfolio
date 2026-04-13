@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #F5F2EE;
+  --charcoal: #1A1A1A;
+  --gold: #C9A96E;
+  --warm-gray: #E8E4DF;
+  --mid-gray: #8A857E;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--charcoal);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(201, 169, 110, 0.2);
+  color: var(--charcoal);
+}
+
+/* Staggered animation delays for hero elements */
+.hero-name    { animation-delay: 0.05s; }
+.hero-rule    { animation-delay: 0.2s; }
+.hero-sub     { animation-delay: 0.3s; }
+.hero-scroll  { animation-delay: 0.5s; }
+
+.opacity-0-start {
+  opacity: 0;
+}

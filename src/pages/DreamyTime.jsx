@@ -64,28 +64,28 @@ const roadmapItems = [
 const pmLearnings = [
   {
     label: '01',
-    heading: 'Vibe-coding is a real PM skill.',
-    body: "I built this without writing a single line of code — but every meaningful decision (model choice, auth, scope, what not to build) was a product decision, not a technical one.",
+    heading: 'Vibe-coding is a legitimate PM skill.',
+    body: "I didn't write a single line of code — but I made every real decision. Model choice, auth strategy, what to build, what to cut. That's the job.",
   },
   {
     label: '02',
-    heading: 'A strong PRD is the foundation.',
-    body: "The quality of what Claude Code produced was directly proportional to how clearly I specified the problem upfront. Garbage in, garbage out — even with AI.",
+    heading: 'Your PRD is your leverage.',
+    body: "Claude Code is only as good as what you give it. The clearer I was about the problem, the better the output. Garbage in, garbage out — even with AI.",
   },
   {
     label: '03',
-    heading: "LLMs are infrastructure, not magic.",
-    body: "Connecting Gemini via API reframed how I think about AI — it's a callable service that solves a specific problem, not a chatbot.",
+    heading: "LLMs are infrastructure.",
+    body: "Connecting Gemini via API changed how I think about AI. It's not a chatbot — it's a callable service you design around. That reframe matters.",
   },
   {
     label: '04',
-    heading: "Shipping teaches you things specs don't.",
-    body: "Running the app locally, pushing to GitHub, managing environment variables — doing it demystified the development process in a way no course could.",
+    heading: "You learn things by shipping that you can't learn from specs.",
+    body: "Running it locally, pushing to GitHub, managing environment variables, hosting the backend on Railway and the frontend on Vercel — doing the thing demystified the process faster than any course ever could. The time, the effort, the troubleshooting — and more importantly, deciding which tool was right for which job. That's a PM decision too.",
   },
   {
     label: '05',
-    heading: "Trade-offs don't disappear just because AI writes the code.",
-    body: "Choosing Gemini over Claude wasn't a technical call — it was a cost, speed, and UX decision. That's always a PM's job.",
+    heading: "Trade-offs don't disappear just because AI wrote the code.",
+    body: "Picking Gemini over Claude wasn't a technical decision — it was cost, speed, and UX. That's always a PM call. AI doesn't change that.",
   },
 ]
 
@@ -258,7 +258,7 @@ export default function DreamyTime() {
       {/* ── 06 TRY IT OUT ──────────────────────────────── */}
       <div className="mt-20 border-t border-warm-gray pt-14">
         <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#8B6914] block mb-1">06</span>
-        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-charcoal/80 block mb-6">Try It Out</span>
+        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-charcoal/80 block mb-6">Demo</span>
         <h2
           className="font-display font-bold text-charcoal leading-tight mb-4"
           style={{ fontSize: 'clamp(24px, 4vw, 48px)' }}

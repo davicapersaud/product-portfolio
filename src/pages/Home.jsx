@@ -117,7 +117,7 @@ export default function Home() {
                 I also build. I taught myself to vibe-code and shipped Dreamy Tales Storyteller, a generative bedtime story app — because I believe the best PMs stay close to the craft. This portfolio you're reading right now? Built by me, in Claude Code.
               </p>
               <p className="text-charcoal/60 text-lg leading-relaxed">
-                I'm not here to manage a backlog. I'm here to build AI products people are genuinely excited to use.
+                I'm not here to just manage a backlog. I build AI products from 0 to 1 that people are genuinely excited to use.
               </p>
             </div>
           </div>

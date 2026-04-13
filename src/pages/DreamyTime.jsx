@@ -266,8 +266,7 @@ export default function DreamyTime() {
           Try It Out
         </h2>
         <p className="text-charcoal/85 text-base leading-relaxed max-w-xl mb-8">
-          Try Dreamy Tales right here — create an account, add a child profile,
-          and generate your first story.
+          Try Dreamy Tales right here — click sign in and generate your first story.
         </p>
         <iframe
           src="https://dreamy-tales-web.vercel.app/"

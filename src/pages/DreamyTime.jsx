@@ -8,8 +8,8 @@ const productDecisions = [
   },
   {
     decision: 'Database',
-    choice: 'SQLite',
-    why: 'Lightweight and zero-infrastructure for a local-first MVP. No server to spin up, no cost, no overhead — the right call for this stage of the product.',
+    choice: 'PostgreSQL (Railway)',
+    why: 'Started with SQLite for local development — fast, zero config, no overhead. Migrated to Railway-managed PostgreSQL for deployment so data persists across redeployments and supports proper connection pooling as the product scales.',
   },
   {
     decision: 'Authentication',

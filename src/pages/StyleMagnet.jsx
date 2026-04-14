@@ -463,7 +463,7 @@ function RoadmapAccordion() {
                 {phase.items.map((item, j) => (
                   <div key={j}>
                     {j > 0 && <div className="border-t border-warm-gray" />}
-                    <div className="grid grid-cols-[180px_1fr] gap-6 py-3 items-start">
+                    <div className="flex flex-col md:grid md:grid-cols-[180px_1fr] gap-1 md:gap-6 py-3 md:items-start">
                       <span className="font-mono text-sm tracking-widest uppercase font-semibold text-[#4A4A4A] pt-0.5">
                         {item.tag}
                       </span>
@@ -1061,20 +1061,22 @@ export default function StyleMagnet() {
         <div className="divide-y divide-warm-gray">
           {dataPipeline.map((stage) => (
             <div key={stage.number} className="py-10">
-              <div className="flex items-baseline gap-8 mb-8">
-                <span className="font-mono text-5xl leading-none flex-shrink-0" style={{ color: '#8B6914' }}>
-                  {stage.number}
-                </span>
-                <h3
-                  className="font-display font-semibold text-charcoal leading-snug"
-                  style={{ fontSize: 'clamp(22px, 2.8vw, 34px)' }}
-                >
-                  {stage.title}
-                </h3>
+              <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8 mb-8">
+                <div className="flex items-baseline gap-4 md:contents">
+                  <span className="font-mono text-5xl leading-none md:flex-shrink-0" style={{ color: '#8B6914' }}>
+                    {stage.number}
+                  </span>
+                  <h3
+                    className="font-display font-semibold text-charcoal leading-snug"
+                    style={{ fontSize: 'clamp(22px, 2.8vw, 34px)' }}
+                  >
+                    {stage.title}
+                  </h3>
+                </div>
               </div>
               <div className="divide-y divide-warm-gray">
                 {stage.rows.map((row) => (
-                  <div key={row.tag} className="grid grid-cols-[160px_1fr] gap-6 py-4">
+                  <div key={row.tag} className="flex flex-col md:grid md:grid-cols-[160px_1fr] gap-1 md:gap-6 py-4">
                     <span className="font-mono text-sm tracking-[0.2em] uppercase font-semibold text-[#4A4A4A] pt-0.5">
                       {row.tag}
                     </span>
@@ -1411,17 +1413,19 @@ export default function StyleMagnet() {
 
         <div className="divide-y divide-warm-gray">
           {gtmRows.map((row) => (
-            <div key={row.number} className="flex items-start gap-8 py-8">
-              <span className="font-mono text-5xl leading-none min-w-[80px]" style={{ color: '#8B6914' }}>
-                {row.number}
-              </span>
-              <h3
-                className="font-display font-semibold text-charcoal leading-snug min-w-[200px]"
-                style={{ fontSize: 'clamp(20px, 2vw, 24px)' }}
-              >
-                {row.stage}
-              </h3>
-              <p className="font-sans text-[#4A4A4A] text-base leading-relaxed flex-1">
+            <div key={row.number} className="flex flex-col md:flex-row md:items-start gap-2 md:gap-8 py-8">
+              <div className="flex items-baseline gap-4 md:contents">
+                <span className="font-mono text-5xl leading-none md:min-w-[80px]" style={{ color: '#8B6914' }}>
+                  {row.number}
+                </span>
+                <h3
+                  className="font-display font-semibold text-charcoal leading-snug md:min-w-[200px]"
+                  style={{ fontSize: 'clamp(20px, 2vw, 24px)' }}
+                >
+                  {row.stage}
+                </h3>
+              </div>
+              <p className="font-sans text-[#4A4A4A] text-base leading-relaxed md:flex-1">
                 {row.description}
               </p>
             </div>

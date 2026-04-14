@@ -68,11 +68,12 @@ export default function Home() {
           <p className="font-mono text-sm tracking-[0.2em] uppercase" style={{ color: '#8B6914' }}>
             Mentor
           </p>
-          <div className="mt-6 flex items-center gap-8">
+          <div className="mt-6 flex flex-col md:flex-row items-center gap-8">
             <img
               src="/linkedinPic.jpeg"
               alt="Davica Persaud"
-              style={{ maxWidth: '340px', width: '100%', flexShrink: 0 }}
+              className="md:flex-shrink-0"
+              style={{ maxWidth: '340px', width: '100%' }}
             />
             <p className="font-display text-xl md:text-[1.6rem] italic font-bold text-charcoal/65 leading-snug">
               "Not just designing AI — building it. Products that last, capabilities that excite, potential that meets real life."

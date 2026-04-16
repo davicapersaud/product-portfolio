@@ -197,6 +197,26 @@ const dataPipeline = [
   },
 ]
 
+const llmModels = [
+  { model: 'Groq llama-3.3-70b-versatile', latency: '4.47s', tokens: '6,277', accuracy: '60%', selected: false },
+  { model: 'Groq llama-3.1-8b-instant', latency: '2.14s', tokens: '6,344', accuracy: '55%', selected: false },
+  { model: 'GPT gpt-5-nano-2025-08-07', latency: '44.34s', tokens: '9,251', accuracy: '70%', selected: false },
+  { model: 'GPT gpt-4o-mini-2024-07-18', latency: '19.31s', tokens: '5,829', accuracy: '50%', selected: false },
+  { model: 'GPT gpt-4.1-mini-2025-04-14', latency: '43.83s', tokens: '5,928', accuracy: '65%', selected: false },
+  { model: 'Claude claude-sonnet-4-6', latency: '34.01s', tokens: '7,612', accuracy: '70%', selected: false },
+  { model: 'Claude claude-opus-4-6', latency: '34.77s', tokens: '7,383', accuracy: '90%', selected: false },
+  { model: 'Gemini gemini-2.5-flash-lite', latency: '5.70s', tokens: '5,824', accuracy: '80%', selected: true },
+]
+
+const toolComparisonRows = [
+  { factor: 'Browser Support', puppeteer: 'Chrome/Chromium only', playwright: 'Chrome, Firefox, Safari (WebKit)' },
+  { factor: 'Built For', puppeteer: 'General browser automation', playwright: 'End-to-end testing + automation' },
+  { factor: 'Dynamic Content', puppeteer: 'Manual waitForSelector calls', playwright: 'Auto-waits for elements to be ready' },
+  { factor: 'Error Messages', puppeteer: 'Generic', playwright: 'Descriptive — tells you exactly what failed' },
+  { factor: 'Network Interception', puppeteer: 'Basic', playwright: 'Advanced — can block ads, trackers, and scripts that slow page loads' },
+  { factor: 'Language Support', puppeteer: 'JavaScript only', playwright: 'JavaScript and Python' },
+]
+
 const whyNowRows = [
   {
     number: '01',
@@ -1088,6 +1108,147 @@ export default function StyleMagnet() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ── LLM Model Selection ─────────────────────────── */}
+      <section className="border-t border-warm-gray pt-16 pb-24">
+        <p className="font-mono text-base tracking-[0.2em] uppercase font-semibold mb-10" style={{ color: '#8B6914' }}>
+          LLM Model Selection
+        </p>
+
+        <h2
+          className="font-display font-semibold text-charcoal leading-tight mb-4"
+          style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}
+        >
+          Choosing the Right Model for Outfit Recommendations
+        </h2>
+
+        <p className="font-sans text-[#4A4A4A] text-lg leading-relaxed max-w-2xl mb-12">
+          We evaluated 8 models across latency, token cost, and outfit recommendation accuracy. Accuracy scores were validated by our in-house stylist, who reviewed each model's recommendations and made independent judgement calls — making this a human-verified eval, not just a benchmark.
+        </p>
+
+        <div className="mb-12 overflow-x-auto">
+          <div className="min-w-[600px]">
+            <div className="grid grid-cols-4 bg-gold px-6 py-4">
+              {['Model', 'Avg Latency', 'Total Tokens', 'Accuracy (Stylist Validated)'].map((col) => (
+                <span
+                  key={col}
+                  className="font-mono text-base font-bold tracking-widest uppercase text-cream"
+                >
+                  {col}
+                </span>
+              ))}
+            </div>
+            {llmModels.map((row, i) => (
+              <div
+                key={i}
+                className={`grid grid-cols-4 px-6 py-5 border-b border-warm-gray ${
+                  row.selected ? 'bg-[#FBF6EE]' : i % 2 === 0 ? 'bg-cream' : 'bg-[#EDEAE5]'
+                }`}
+                style={row.selected ? { borderLeft: '4px solid #C9A96E' } : {}}
+              >
+                <span className="font-sans font-medium text-base pr-4 leading-snug flex items-center gap-2 flex-wrap" style={{ color: '#1A1A1A' }}>
+                  {row.model}
+                  {row.selected && (
+                    <span
+                      className="font-mono text-xs font-bold tracking-wider uppercase px-2 py-0.5 rounded"
+                      style={{ backgroundColor: '#C9A96E', color: '#FFFFFF' }}
+                    >
+                      SELECTED
+                    </span>
+                  )}
+                </span>
+                <span className="font-mono text-base tracking-wide text-[#4A4A4A] leading-relaxed">
+                  {row.latency}
+                </span>
+                <span className="font-mono text-base tracking-wide text-[#4A4A4A] leading-relaxed">
+                  {row.tokens}
+                </span>
+                <span className="font-mono text-base tracking-wide text-[#4A4A4A] leading-relaxed">
+                  {row.accuracy}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3
+            className="font-display font-semibold text-charcoal leading-snug mb-4"
+            style={{ fontSize: 'clamp(20px, 2.5vw, 30px)' }}
+          >
+            Why Gemini 2.5 Flash Lite?
+          </h3>
+          <p className="font-sans text-[#4A4A4A] text-lg leading-relaxed max-w-2xl">
+            Claude Opus 4 scored highest on accuracy at 90% — but at 34 seconds average latency, it's too slow for a real-time styling experience. Gemini 2.5 Flash Lite scored 80% accuracy, validated by our stylist, at 5.7 seconds and the lowest token count of any model tested. The decision wasn't just about cost — it was about delivering accurate recommendations fast enough that the experience actually feels good to use. Gemini 2.5 Flash Lite was the only model that cleared both bars.
+          </p>
+        </div>
+      </section>
+
+      {/* ── Agentic Shopping — Tool Selection ──────────── */}
+      <section className="border-t border-warm-gray pt-16 pb-24">
+        <p className="font-mono text-base tracking-[0.2em] uppercase font-semibold mb-10" style={{ color: '#8B6914' }}>
+          TOOL SELECTION
+        </p>
+
+        <h2
+          className="font-display font-semibold text-charcoal leading-tight mb-4"
+          style={{ fontSize: 'clamp(28px, 4vw, 52px)' }}
+        >
+          Why Playwright Over Puppeteer
+        </h2>
+
+        <p className="font-sans text-[#4A4A4A] text-lg leading-relaxed max-w-2xl mb-12">
+          Style Magnet's shopping agent navigates live retailer storefronts to complete the checkout process autonomously. Before building, we evaluated Playwright vs Puppeteer — and made a deliberate decision based on what the agent would actually need to do in production.
+        </p>
+
+        <div className="mb-12 overflow-x-auto">
+          <div className="min-w-[600px]">
+            <div className="grid grid-cols-3 bg-gold px-6 py-4">
+              {['Factor', 'Puppeteer', 'Playwright'].map((col) => (
+                <span
+                  key={col}
+                  className="font-mono text-base font-bold tracking-widest uppercase text-cream"
+                >
+                  {col}
+                </span>
+              ))}
+            </div>
+            {toolComparisonRows.map((row, i) => (
+              <div
+                key={i}
+                className={`grid grid-cols-3 px-6 py-5 border-b border-warm-gray ${
+                  i % 2 === 0 ? 'bg-cream' : 'bg-[#EDEAE5]'
+                }`}
+              >
+                <span className="font-sans font-medium text-base pr-4 leading-snug" style={{ color: '#1A1A1A' }}>
+                  {row.factor}
+                </span>
+                <span className="font-mono text-base tracking-wide text-[#4A4A4A] leading-relaxed pr-4">
+                  {row.puppeteer}
+                </span>
+                <span
+                  className="font-mono text-base tracking-wide text-[#4A4A4A] leading-relaxed bg-[#FBF6EE] pl-4"
+                  style={{ borderLeft: '4px solid #C9A96E' }}
+                >
+                  {row.playwright}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <h3
+            className="font-display font-semibold text-charcoal leading-snug mb-4"
+            style={{ fontSize: 'clamp(20px, 2.5vw, 30px)' }}
+          >
+            The Decision
+          </h3>
+          <p className="font-sans text-[#4A4A4A] text-lg leading-relaxed max-w-2xl">
+            We didn't build with both — we made the call upfront. Retailer storefronts are dynamic, JavaScript-heavy, and inconsistent across browsers. Playwright was built specifically for this environment. Auto-waiting alone eliminated an entire class of flaky automation bugs before we wrote a single line of agent code. That reliability wasn't a nice-to-have — it was the decision.
+          </p>
         </div>
       </section>
 

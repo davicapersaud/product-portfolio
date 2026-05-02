@@ -76,7 +76,7 @@ export default function Home() {
               style={{ maxWidth: '340px', width: '100%' }}
             />
             <p className="font-display text-xl md:text-[1.6rem] italic font-bold text-charcoal/65 leading-snug">
-              "Not just designing AI — building it. Products that last, capabilities that excite, potential that meets real life."
+              "Not just using AI, building with it. Products that last, capabilities that excite, potential that meets real life."
             </p>
           </div>
         </div>
